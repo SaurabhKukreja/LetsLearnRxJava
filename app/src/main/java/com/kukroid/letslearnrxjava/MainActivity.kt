@@ -3,10 +3,14 @@ package com.kukroid.letslearnrxjava
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.kukroid.letslearnrxjava.operators.From
 import com.kukroid.letslearnrxjava.operators.Just
+import com.kukroid.letslearnrxjava.operators.Range
 import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +30,29 @@ class MainActivity : AppCompatActivity() {
             justObservable.subscribe({
                 justResult.setText(it.toString())
             }).addTo(compositeDisposable)
+        })
+
+        fromButton.setOnClickListener(View.OnClickListener {
+
+            // Todo Later
+
+        })
+
+        rangeButton.setOnClickListener(View.OnClickListener {
+            Observable.range(10, 10).subscribe({
+                Util.d(it.toString())
+            })
+
+            var rangeObservable: Observable<Int>? = Range().operateRange(50,10)
+            rangeObservable!!
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                Util.d(it.toString())
+                rangeResult.append(it.toString()+",")
+            })
+
+
         })
 
     }

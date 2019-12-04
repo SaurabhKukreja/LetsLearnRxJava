@@ -7,6 +7,30 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/rangeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Range Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fromButton" />
+
+    <TextView
+        android:id="@+id/rangeResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="96dp"
+        android:text="Range Result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/rangeButton"
+        app:layout_constraintTop_toBottomOf="@+id/fromResult" />
+
+    <Button
         android:id="@+id/justButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,5 +58,29 @@
         app:layout_constraintStart_toEndOf="@+id/justButton"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.042" />
+
+    <Button
+        android:id="@+id/fromButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:text="From Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/justButton" />
+
+    <TextView
+        android:id="@+id/fromResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:text="From Result"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/fromButton"
+        app:layout_constraintTop_toBottomOf="@+id/justResult" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
