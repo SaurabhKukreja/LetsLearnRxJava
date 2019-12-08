@@ -75,6 +75,16 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        flatMapButton.setOnClickListener(View.OnClickListener {
+            val flatMapObservableData = Create().operateCreate()
+            val flatMapsObservable = flatMapObservableData.flatMap { it -> Observable.just(Student("New Member", "nMember@gmail.com", 29))}
+
+            flatMapsObservable.subscribe({
+                Util.d("Student Name with FlatMap: "+it.name)
+            })
+
+        })
+
     }
 
     override fun onDestroy() {
