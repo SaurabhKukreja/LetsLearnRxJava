@@ -64,6 +64,17 @@ class MainActivity : AppCompatActivity() {
             })
         })
 
+        mapButton.setOnClickListener(View.OnClickListener {
+            val mapObservableData = Create().operateCreate()
+            val mapObservable = mapObservableData.map { "" + it.age + "years" }
+
+            mapObservable.subscribe({
+                rangeResult.setText(it)
+            })
+
+
+        })
+
     }
 
     override fun onDestroy() {
