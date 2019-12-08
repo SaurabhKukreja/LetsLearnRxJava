@@ -3,10 +3,12 @@ package com.kukroid.letslearnrxjava
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.kukroid.letslearnrxjava.operators.Create
 import com.kukroid.letslearnrxjava.operators.From
 import com.kukroid.letslearnrxjava.operators.Just
 import com.kukroid.letslearnrxjava.operators.Range
 import io.reactivex.Observable
+import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -53,6 +55,13 @@ class MainActivity : AppCompatActivity() {
             })
 
 
+        })
+
+        createButton.setOnClickListener(View.OnClickListener {
+            val createObservable = Create().operateCreate()
+            createObservable.subscribe({
+                Util.d("Student Name : " +it.name)
+            })
         })
 
     }
