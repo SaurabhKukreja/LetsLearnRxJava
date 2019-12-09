@@ -7,6 +7,7 @@ import com.kukroid.letslearnrxjava.operators.Create
 import com.kukroid.letslearnrxjava.operators.From
 import com.kukroid.letslearnrxjava.operators.Just
 import com.kukroid.letslearnrxjava.operators.Range
+import com.kukroid.letslearnrxjava.subjects.AsyncSubjectDemo
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -83,6 +84,10 @@ class MainActivity : AppCompatActivity() {
                 Util.d("Student Name with FlatMap: "+it.name)
             })
 
+        })
+
+        testAsyncSubject.setOnClickListener(View.OnClickListener {
+            AsyncSubjectDemo().testAsyncSubject()
         })
 
     }
