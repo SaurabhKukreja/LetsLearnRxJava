@@ -3,6 +3,8 @@ package com.kukroid.letslearnrxjava
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.jakewharton.rxbinding2.view.RxView
+import com.jakewharton.rxbinding2.widget.RxCompoundButton
 import com.kukroid.letslearnrxjava.operators.Create
 import com.kukroid.letslearnrxjava.operators.From
 import com.kukroid.letslearnrxjava.operators.Just
@@ -15,6 +17,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.function.Consumer
 
 class MainActivity : AppCompatActivity() {
 
@@ -89,6 +92,12 @@ class MainActivity : AppCompatActivity() {
         testAsyncSubject.setOnClickListener(View.OnClickListener {
             AsyncSubjectDemo().testAsyncSubject()
         })
+
+        RxView.clicks(clearButton).subscribe(io.reactivex.functions.Consumer {
+            justResult.setText("")
+            rangeResult.setText("")
+        }).addTo(compositeDisposable)
+
 
     }
 
