@@ -40,7 +40,30 @@ class MainActivity : AppCompatActivity() {
 
         fromButton.setOnClickListener(View.OnClickListener {
 
-            // Todo Later
+            /*var observer: Observer<Int> = object :Observer<Int> {
+                override fun onComplete() {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onNext(t: Int) {
+                    Util.d("Output from - fromArray: "+ t)
+                }
+
+                override fun onError(e: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+            }*/
+
+            var numbers = arrayOf<Int>(1, 2, 3)
+            Observable.fromIterable(listOf(1,2,3))
+                .subscribe({
+                    Util.d("Emit Integers from list: "+ it)
+                })
 
         })
 
